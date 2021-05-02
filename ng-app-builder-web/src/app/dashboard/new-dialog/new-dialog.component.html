@@ -1,0 +1,74 @@
+<h1 mat-dialog-title>New Item</h1>
+<div mat-dialog-content>
+    <form #newItemForm="ngForm" style="margin-top: 10px;">
+        <p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="selected" (change)="onChange()" name="itemType"
+                required>
+                <mat-list role="list">
+                    <mat-list-item role="listitem">
+                        <div>
+                            <mat-radio-button [value]="'moduleWithRoute'"
+                                matTooltip="Generate lazy module with component and route"
+                                [matTooltipPosition]="'right'">Module with route
+                            </mat-radio-button>
+                            <mat-form-field class="full-width">
+                                <input matInput [(ngModel)]="selectedNode.route" name="moduleRouteName"
+                                    placeholder="Enter Route name" [disabled]="selected != 'moduleWithRoute'">
+                            </mat-form-field>
+                        </div>
+                    </mat-list-item>
+
+                    <mat-list-item role="listitem">
+                        <div>
+                            <mat-radio-button [value]="'module'" matTooltip="Generate new module with component"
+                                [matTooltipPosition]="'right'">Module</mat-radio-button>
+                        </div>
+                    </mat-list-item>
+
+                    <mat-list-item role="listitem">
+                        <div>
+                            <mat-radio-button [value]="'component'" matTooltip="Generate new component"
+                                [matTooltipPosition]="'right'">Component</mat-radio-button>
+                        </div>
+                    </mat-list-item>
+
+                    <mat-list-item role="listitem">
+                        <div>
+                            <mat-radio-button [value]="'service'" matTooltip="Generate new service class"
+                                [matTooltipPosition]="'right'">Service</mat-radio-button>
+                        </div>
+                    </mat-list-item>
+
+                    <mat-list-item role="listitem">
+                        <div>
+                            <mat-radio-button [value]="'pipe'" matTooltip="Generate new pipe class"
+                                [matTooltipPosition]="'right'">Pipe</mat-radio-button>
+                        </div>
+                    </mat-list-item>
+
+                    <mat-list-item role="listitem">
+                        <div>
+                            <mat-radio-button [value]="'directive'" matTooltip="Generate new directive class"
+                                [matTooltipPosition]="'right'">Directive</mat-radio-button>
+                        </div>
+
+                    </mat-list-item>
+
+                </mat-list>
+
+            </mat-radio-group>
+        </p>
+
+        <mat-form-field class="full-width">
+            <input matInput [(ngModel)]="selectedNode.name" placeholder="Enter name" name="itemName" required>
+        </mat-form-field>
+    </form>
+</div>
+
+<mat-dialog-actions align="start">
+    <button mat-raised-button type="submit" [mat-dialog-close]="selectedNode" color="primary"
+    [disabled]="!newItemForm.valid" cdkFocusInitial>
+    {{this.modalData.action == 'update' ? 'Update' : 'Create'}}</button>
+    <button mat-button color="warn" (click)="onNoClick()">Cancel</button>
+</mat-dialog-actions>
+

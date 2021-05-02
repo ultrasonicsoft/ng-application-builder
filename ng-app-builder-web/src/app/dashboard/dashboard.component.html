@@ -1,0 +1,54 @@
+<div class="dashboard">
+  <div *ngIf="showSpinner" class="center">
+    <h4 class="example-h2">Generating app...</h4>
+    <mat-progress-spinner class="example-margin" [diameter]="100" [color]="'accent'" [mode]="'indeterminate'">
+    </mat-progress-spinner>
+
+  </div>
+
+  <mat-card class="center" *ngIf="!showSpinner">
+    <mat-card-header>
+      <mat-card-title>Generate Project</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form #appForm="ngForm">
+        <mat-form-field style="margin-right: 10px; width: 100%;">
+          <input matInput type="text" [(ngModel)]="appConfiguration.name" name="appName"
+            placeholder="Enter project name" required>
+        </mat-form-field>
+        <mat-card-actions>
+          <button mat-button type="submit" color="primary" (click)="generateApp()" [disabled]="!appForm.valid">Open
+            StackBlitz
+          </button>
+          <button mat-button color="secondary" (click)="downloadApp()" [disabled]="!appForm.valid">Download
+            App</button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <svg preserveAspectRatio="none">
+
+  </svg>
+
+  <nav id="my_custom_menu" class="context-menu">
+    <ul class="context-menu__items">
+      <li class="context-menu__item">
+        <a class="context-menu__link" (click)="openDialog('create')">
+          <i class="fa fa-eye"></i> New
+        </a>
+      </li>
+      <!-- <li class="context-menu__item">
+        <a class="context-menu__link" (click)="openDialog('update')">
+          <i class="fa fa-edit"></i> Edit
+        </a>
+      </li> -->
+      <li class="context-menu__item">
+        <a class="context-menu__link" (click)="removeNode()">
+          <i class="fa fa-times"></i> Delete
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</div>
