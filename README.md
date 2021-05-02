@@ -1,0 +1,3 @@
+# Angular application builder
+
+This Angular application generates new Angular applications. The frontend requests an application by sending application skeleton in JSON format. The server parse the request and builds `Angular CLI` commands for generating application. Once application is generated then either a zip file can be sent to client for download or open an application in StackBlitz project.
