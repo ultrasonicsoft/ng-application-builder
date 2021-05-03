@@ -8,12 +8,12 @@ This Angular application generates new Angular applications. The frontend reques
 * Install Node.js, Git, Angular CLI packages.
 * Clone the GitHub repository
 
-    `https://github.com/ultrasonicsoft/ng-app-generator-web.git`
+    `https://github.com/ultrasonicsoft/ng-application-builder.git`
 
 * Install npm package in source directory
 
     `npm install` 
-* Make sure [Server](https://github.com/ultrasonicsoft/ng-app-builder.git) is setup and running.
+* Make sure [Server](https://github.com/ultrasonicsoft/ng-application-builder.git) is setup and running.
 
 * Update `baseUrl` in `environment.ts` file with valid server IP address/URL. For local server, default value is `localhost`.
 
