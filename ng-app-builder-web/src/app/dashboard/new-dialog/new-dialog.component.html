@@ -13,7 +13,7 @@
                             </mat-radio-button>
                             <mat-form-field class="full-width">
                                 <input matInput [(ngModel)]="selectedNode.route" name="moduleRouteName"
-                                    placeholder="Enter Route name" [disabled]="selected != 'moduleWithRoute'">
+                                    placeholder="Enter Route name" [disabled]="selected != 'moduleWithRoute'" cdkFocusInitial>
                             </mat-form-field>
                         </div>
                     </mat-list-item>
@@ -22,6 +22,13 @@
                         <div>
                             <mat-radio-button [value]="'module'" matTooltip="Generate new module with component"
                                 [matTooltipPosition]="'right'">Module</mat-radio-button>
+                        </div>
+                    </mat-list-item>
+
+                    <mat-list-item role="listitem">
+                        <div>
+                            <mat-radio-button [value]="'standaloneComponent'" matTooltip="Generate Standalone Component"
+                                [matTooltipPosition]="'right'">Standalone Component</mat-radio-button>
                         </div>
                     </mat-list-item>
 
@@ -62,13 +69,15 @@
         <mat-form-field class="full-width">
             <input matInput [(ngModel)]="selectedNode.name" placeholder="Enter name" name="itemName" required>
         </mat-form-field>
+
+        <mat-dialog-actions align="start">
+            <button mat-raised-button type="submit" [mat-dialog-close]="selectedNode" color="primary"
+            [disabled]="!newItemForm.valid" cdkFocusInitial>
+            {{this.modalData.action == 'update' ? 'Update' : 'Create'}}</button>
+            <button mat-button color="warn" (click)="onNoClick()">Cancel</button>
+        </mat-dialog-actions>
     </form>
 </div>
 
-<mat-dialog-actions align="start">
-    <button mat-raised-button type="submit" [mat-dialog-close]="selectedNode" color="primary"
-    [disabled]="!newItemForm.valid" cdkFocusInitial>
-    {{this.modalData.action == 'update' ? 'Update' : 'Create'}}</button>
-    <button mat-button color="warn" (click)="onNoClick()">Cancel</button>
-</mat-dialog-actions>
+
 

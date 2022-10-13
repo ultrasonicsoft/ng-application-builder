@@ -11,6 +11,7 @@ export class Commands {
     static CreateModule = `ng generate module ${Tokens.NodeName} --module ${Tokens.ParentModuleName}.module `
     static CreateModuleWithRoute = `ng generate module ${Tokens.NodeName} --route ${Tokens.RouteName} --module ${Tokens.ParentModuleName}.module `
     static CreateComponent = `ng generate component ${Tokens.NodeName} --module ${Tokens.ParentModuleName}.module `
+    static CreateStandaloneComponent = `ng generate component ${Tokens.NodeName} --standalone `
     static CreatePipe = `ng generate pipe ${Tokens.NodeName} --module ${Tokens.ParentModuleName}.module `
     static CreateService = `ng generate service ${Tokens.NodeName}`
 }

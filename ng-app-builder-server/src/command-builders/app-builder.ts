@@ -11,6 +11,7 @@ import { NgComponentBuilder } from "./ng-component-builder";
 import { NgServiceBuilder } from "./ng-service-builder";
 import { NgPipeBuilder } from "./ng-pipe-builder";
 import { ProjectModel } from "../models/project.model";
+import { NgStandaloneComponentBuilder } from "./ng-standalone-component-builder";
 
 export class AppBuilder {
   configuration: AppConfiguration;
@@ -82,6 +83,9 @@ export class AppBuilder {
           break;
         case NodeType.component:
           command = NgComponentBuilder.buildCommand(nodeName, currentNode);
+          break;
+        case NodeType.standaloneComponent:
+          command = NgStandaloneComponentBuilder.buildCommand(nodeName, currentNode);
           break;
         case NodeType.service:
           command = NgServiceBuilder.buildCommand(nodeName);
