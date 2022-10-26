@@ -22,8 +22,10 @@
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
     "@stackblitz/sdk": "^1.4.0",
+    "@types/js-yaml": "^4.0.5",
     "d3": "^5.16.0",
     "file-saver": "^2.0.2",
+    "js-yaml": "^4.1.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

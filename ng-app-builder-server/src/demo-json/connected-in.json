@@ -1,0 +1,111 @@
+{
+    "name": "connectedIn",
+    "nodeConfiguration": {
+        "name": "app",
+        "type": "module",
+        "route": "",
+        "modulePath": "",
+        "parentModule": "",
+        "children": [
+            {
+                "name": "login",
+                "type": "moduleWithRoute",
+                "route": "login",
+                "parentModule": "app",
+                "modulePath": "login"
+            },
+            {
+                "name": "signup",
+                "type": "moduleWithRoute",
+                "route": "signup",
+                "parentModule": "app",
+                "modulePath": "signup"
+            },
+            {
+                "name": "dashboard",
+                "type": "moduleWithRoute",
+                "route": "dashboard",
+                "parentModule": "app",
+                "modulePath": "dashboard",
+                "children": [
+                    {
+                        "name": "header",
+                        "type": "module",
+                        "route": "header",
+                        "parentModule": "dashboard",
+                        "modulePath": "dashboard/header"
+                    },
+                    {
+                        "name": "suggestions",
+                        "type": "module",
+                        "route": "",
+                        "parentModule": "dashboard",
+                        "modulePath": "dashboard/suggestions"
+                    },
+                    {
+                        "name": "feed",
+                        "type": "module",
+                        "route": "",
+                        "parentModule": "dashboard",
+                        "modulePath": "dashboard/feed",
+                        "children": [
+                            {
+                                "name": "feed",
+                                "type": "service",
+                                "route": "",
+                                "parentModule": "feed",
+                                "modulePath": "dashboard/feed/feed"
+                            },
+                            {
+                                "name": "feed-list",
+                                "type": "standaloneComponent",
+                                "route": "",
+                                "parentModule": "feed",
+                                "modulePath": "dashboard/feed/feed-list"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "account",
+                        "type": "moduleWithRoute",
+                        "route": "account",
+                        "parentModule": "dashboard",
+                        "modulePath": "dashboard/account",
+                        "children": [
+                            {
+                                "name": "address",
+                                "type": "moduleWithRoute",
+                                "route": "address",
+                                "parentModule": "account",
+                                "modulePath": "dashboard/account/address"
+                            },
+                            {
+                                "name": "payments",
+                                "type": "moduleWithRoute",
+                                "route": "payment",
+                                "parentModule": "account",
+                                "modulePath": "dashboard/account/payments",
+                                "children": [
+                                    {
+                                        "name": "custom-currency",
+                                        "type": "pipe",
+                                        "route": "",
+                                        "parentModule": "payments",
+                                        "modulePath": "dashboard/account/payments/custom-currency"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "auth",
+                "type": "service",
+                "route": "",
+                "parentModule": "app",
+                "modulePath": "auth"
+            }
+        ]
+    }
+}

@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Create From Source</h1>
+<div mat-dialog-content>
+    <form #newItemForm="ngForm" style="margin-top: 10px;">
+        <mat-radio-group name="sourceType" aria-label="Select an option" [(ngModel)]="sourceType">
+            <mat-radio-button [value]="1">JSON</mat-radio-button>
+            <mat-radio-button [value]="2">YAML</mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field class="full-width">
+            <textarea [rows]="20" cdkFocusInitial matInput [(ngModel)]="sourceData" placeholder="Enter name"
+                name="itemName" required></textarea>
+        </mat-form-field>
+
+        <mat-dialog-actions align="start">
+            <button mat-raised-button type="submit" [mat-dialog-close]="{data:sourceData, type:sourceType}"
+                color="primary" [disabled]="!newItemForm.valid" cdkFocusInitial>
+                Create</button>
+            <button mat-button color="warn" (click)="onNoClick()">Cancel</button>
+        </mat-dialog-actions>
+    </form>
+</div>

@@ -1,0 +1,46 @@
+---
+name: test2
+nodeConfiguration:
+  name: app
+  type: module
+  route: ''
+  modulePath: ''
+  parentModule: ''
+  children:
+  - name: dashboard
+    type: moduleWithRoute
+    route: dashboard
+    parentModule: app
+    modulePath: dashboard
+  - name: login
+    type: module
+    route: ''
+    parentModule: app
+    modulePath: login
+    children:
+    - name: login
+      type: component
+      route: ''
+      parentModule: login
+      modulePath: login/login
+      children:
+      - name: auth
+        type: service
+        route: ''
+        parentModule: login
+        modulePath: login/login/auth
+      - name: email
+        type: pipe
+        route: ''
+        parentModule: login
+        modulePath: login/login/email
+      - name: double-click
+        type: directive
+        route: ''
+        parentModule: login
+        modulePath: login/login/double-click
+  - name: signup
+    type: standaloneComponent
+    route: ''
+    parentModule: app
+    modulePath: signup

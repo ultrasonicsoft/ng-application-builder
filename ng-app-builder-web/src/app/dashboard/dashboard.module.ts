@@ -8,12 +8,14 @@ import { DashboardComponent } from './dashboard.component';
 import { SharedMatModule } from '../shared-mat/shared-mat.module';
 import { NewDialogComponent } from './new-dialog/new-dialog.component';
 import { DataService } from '../data.service';
+import { ImportDialogComponent } from './import-dialog/import-dialog.component';
 
 
 @NgModule({
     declarations: [
         DashboardComponent,
-        NewDialogComponent
+        NewDialogComponent,
+        ImportDialogComponent,
     ],
     imports: [
         CommonModule,

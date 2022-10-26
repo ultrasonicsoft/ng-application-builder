@@ -11,6 +11,9 @@ import { environment } from 'src/environments/environment';
 import { DataService } from '../data.service';
 
 import sdk from '@stackblitz/sdk';
+import { ImportDialogComponent } from './import-dialog/import-dialog.component';
+import * as YAML from 'js-yaml';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -84,6 +87,24 @@ export class DashboardComponent implements AfterContentInit {
     this.update(this.root);
 
     console.log(this.svg);
+  }
+
+  createDialog(): void {
+
+    const dialogRef = this.dialog.open(ImportDialogComponent, {
+      width: '500px'
+    });
+
+    dialogRef.afterClosed().subscribe((config: { data, type }) => {
+      console.log('The dialog was closed', config);
+      let appConfig = null;
+      if (config.type === 1) {
+        appConfig = JSON.parse(config.data) as AppConfiguration;
+      } else if (config.type === 2) {
+        appConfig = YAML.load(config.data);
+      }
+      this.appConfiguration = { ...appConfig };
+    });
   }
 
   openDialog(action: string): void {
@@ -197,6 +218,11 @@ export class DashboardComponent implements AfterContentInit {
           .style('left', d3.event.clientX + 10 + 'px')
           .style('top', d3.event.clientY + 10 + 'px')
           .style('display', 'block');
+        d3.event.stopPropagation();
+      })
+      .on('dblclick', (selectedNode) => {
+        this.selectedNode = selectedNode;
+        this.openDialog('create');
         d3.event.stopPropagation();
       });
 
