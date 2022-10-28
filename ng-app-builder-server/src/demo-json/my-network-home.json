@@ -1,0 +1,93 @@
+{
+    "name": "my-network-1",
+    "nodeConfiguration": {
+        "name": "app",
+        "type": "module",
+        "route": "",
+        "modulePath": "",
+        "parentModule": "",
+        "children": [
+            {
+                "name": "home",
+                "type": "moduleWithRoute",
+                "route": "home",
+                "parentModule": "app",
+                "modulePath": "home",
+                "children": [
+                    {
+                        "name": "profile-overview",
+                        "type": "standaloneComponent",
+                        "route": "",
+                        "parentModule": "home",
+                        "modulePath": "home/profile-overview"
+                    },
+                    {
+                        "name": "organization-overview",
+                        "type": "standaloneComponent",
+                        "route": "",
+                        "parentModule": "home",
+                        "modulePath": "home/organization-overview"
+                    },
+                    {
+                        "name": "group-overview",
+                        "type": "standaloneComponent",
+                        "route": "",
+                        "parentModule": "home",
+                        "modulePath": "home/group-overview"
+                    },
+                    {
+                        "name": "feed-suggestion-list",
+                        "type": "standaloneComponent",
+                        "route": "",
+                        "parentModule": "home",
+                        "modulePath": "home/feed-suggestion-list",
+                        "children": [
+                            {
+                                "name": "feed-entry",
+                                "type": "standaloneComponent",
+                                "route": "",
+                                "parentModule": "feed-suggestion-list",
+                                "modulePath": "home/feed-suggestion-list/feed-entry"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "network",
+                "type": "moduleWithRoute",
+                "route": "network",
+                "parentModule": "app",
+                "modulePath": "network"
+            },
+            {
+                "name": "jobs",
+                "type": "moduleWithRoute",
+                "route": "jobs",
+                "parentModule": "app",
+                "modulePath": "jobs"
+            },
+            {
+                "name": "notifications",
+                "type": "moduleWithRoute",
+                "route": "notifications",
+                "parentModule": "app",
+                "modulePath": "notifications"
+            },
+            {
+                "name": "messaging",
+                "type": "moduleWithRoute",
+                "route": "messaging",
+                "parentModule": "app",
+                "modulePath": "messaging"
+            },
+            {
+                "name": "footer",
+                "type": "standaloneComponent",
+                "route": "",
+                "parentModule": "app",
+                "modulePath": "footer"
+            }
+        ]
+    }
+}
